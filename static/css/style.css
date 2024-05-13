@@ -33,7 +33,13 @@ main {
   height: 350px;
   border-radius: 15px;
   padding: 40px 20px 0 20px;
-  margin-top: 25%;
+  margin-top: 175px;
+}
+@media (min-width: 660px) {
+  .advice-container {
+    padding: 40px 40px 0 40px;
+    width: 660px;
+  }
 }
 
 .advice-id-container {
@@ -44,14 +50,12 @@ main {
 }
 
 .advice-quote {
+  align-self: center;
   text-align: center;
   font-size: 28px;
   font-weight: 800;
   color: var(--primary-light);
-}
-
-.divider {
-  margin-top: 20px;
+  padding-bottom: 40px;
 }
 
 .generate-advice-btn {
@@ -62,4 +66,8 @@ main {
   background-color: var(--primary-neon);
   position: absolute;
   bottom: -37.5px; /* Half its height so it sits in the middle of the border */
+}
+.generate-advice-btn:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 75px 0px var(--primary-neon);
 }
