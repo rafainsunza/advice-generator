@@ -25,6 +25,28 @@
     <link rel="stylesheet" href="./static/css/style.css" />
   </head>
   <body>
+    <main>
+      <div class="advice-container">
+        <div class="advice-id-container">
+          ADVICE #<span class="advice-id"></span>
+        </div>
+        <div class="advice-quote"></div>
+        <div class="divider">
+          <picture>
+            <source
+              media="(min-width: 660px)"
+              srcset="./static/img/pattern-divider-desktop.svg"
+            />
+            <img src="./static/img/pattern-divider-mobile.svg" alt="" />
+          </picture>
+        </div>
+
+        <button class="generate-advice-btn">
+          <img src="./static/img/icon-dice.svg" alt="Generate advice button" />
+        </button>
+      </div>
+    </main>
+
     <script src="./static/js/main.js"></script>
   </body>
 </html>

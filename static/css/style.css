@@ -1,0 +1,73 @@
+:root {
+  --primary-light: hsl(193, 38%, 86%);
+  --primary-neon: hsl(150, 100%, 66%);
+
+  --neutral-light: hsl(217, 19%, 38%);
+  --neutral-dark: hsl(217, 19%, 24%);
+  --neutral-darkest: hsl(218, 23%, 16%);
+}
+
+html {
+  font-family: "Manrope";
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  padding: 0 20px;
+  background-color: var(--neutral-darkest);
+  display: flex;
+  justify-content: center;
+}
+
+.advice-container {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr 1fr;
+  justify-items: center;
+  position: relative;
+  background-color: var(--neutral-dark);
+  height: 350px;
+  border-radius: 15px;
+  padding: 40px 20px 0 20px;
+  margin-top: 175px;
+}
+@media (min-width: 660px) {
+  .advice-container {
+    padding: 40px 40px 0 40px;
+    width: 660px;
+  }
+}
+
+.advice-id-container {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--primary-neon);
+}
+
+.advice-quote {
+  align-self: center;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary-light);
+  padding-bottom: 40px;
+}
+
+.generate-advice-btn {
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  border: none;
+  background-color: var(--primary-neon);
+  position: absolute;
+  bottom: -37.5px; /* Half its height so it sits in the middle of the border */
+}
+.generate-advice-btn:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 75px 0px var(--primary-neon);
+}
