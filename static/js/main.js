@@ -3,7 +3,7 @@ const adviceIdSpan = document.querySelector('.advice-id');
 const adviceQuote = document.querySelector('.advice-quote');
 
 const generateAdvice = () => {
-    fetch("https://api.adviceslip.com/advice", { cache: 'no-cache' })
+    fetch("https://api.adviceslip.com/advices", { cache: 'no-cache' })
         .then((response) => response.json())
         .then((data) => {
             const advice = data.slip.advice;
@@ -11,6 +11,9 @@ const generateAdvice = () => {
 
             adviceQuote.innerHTML = `"${advice}"`;
             adviceIdSpan.innerHTML = adviceId;
+        })
+        .catch(() => {
+            adviceQuote.innerHTML = 'Something went wrong, please try again later'
         });
 };
 
