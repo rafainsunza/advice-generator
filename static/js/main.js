@@ -3,17 +3,24 @@ const adviceIdSpan = document.querySelector('.advice-id');
 const adviceQuote = document.querySelector('.advice-quote');
 
 const generateAdvice = () => {
+    const errorMessage = 'Something went wrong, please try again later';
     fetch("https://api.adviceslip.com/advice", { cache: 'no-cache' })
         .then((response) => response.json())
         .then((data) => {
-            const advice = data.slip.advice;
-            const adviceId = data.slip.id;
+            if (data.slip) {
+                const advice = data.slip.advice;
+                const adviceId = data.slip.id;
 
-            adviceQuote.innerHTML = `"${advice}"`;
-            adviceIdSpan.innerHTML = adviceId;
+                adviceQuote.innerHTML = `"${advice}"`;
+                adviceIdSpan.innerHTML = adviceId;
+            } else {
+                adviceQuote.innerHTML = errorMessage;
+            }
+
+
         })
         .catch(() => {
-            adviceQuote.innerHTML = 'Something went wrong, please try again later'
+            adviceQuote.innerHTML = errorMessage;
         });
 };
 
