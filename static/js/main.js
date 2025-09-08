@@ -5,23 +5,25 @@ const adviceQuote = document.querySelector('.advice-quote');
 const generateAdvice = () => {
     const errorMessage = 'Something went wrong, please try again later';
     fetch("https://api.adviceslip.com/advice", { cache: 'no-cache' })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.slip) {
-                const advice = data.slip.advice;
-                const adviceId = data.slip.id;
+        .then((response) => response.text())
+        .then((text) => {
+            try {
+                const data = JSON.parse(text);
 
-                adviceQuote.innerHTML = `"${advice}"`;
-                adviceIdSpan.innerHTML = adviceId;
-            } else {
-                adviceQuote.innerHTML = errorMessage;
-            }
+                if (data.slip) {
+                    const advice = data.slip.advice;
+                    const adviceId = data.slip.id;
+
+                    adviceQuote.innerHTML = `"${advice}"`;
+                    adviceIdSpan.innerHTML = adviceId;
+                } else {
+                    adviceQuote.innerHTML = errorMessage;
+                }
+            } catch { adviceQuote.innerHTML = errorMessage; }
 
 
-        })
-        .catch(() => {
-            adviceQuote.innerHTML = errorMessage;
-        });
+        }).catch(() => { adviceQuote.innerHTML = errorMessage });
+
 };
 
 
